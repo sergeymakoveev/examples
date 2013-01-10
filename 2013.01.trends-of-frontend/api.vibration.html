@@ -20,15 +20,26 @@
 </head>
 <body>
 <h1>Vibration API</h1>
-<input type="button" value="navigator.vibrate(1000)"
+<input type="button" value="vibrate 1 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(1000);
        " />
-<input type="button" value="navigator.vibrate([200,100,200,100,200,50,200])"
+<input type="button" value="vibrate many times"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate([200,100,200,100,200,50,200]);
        " />
+<input type="button" value="vibrate 10 sec"
+       onclick="
+            if( 'vibrate' in navigator )
+                navigator.vibrate(10000);
+       " />
+<input type="button" value="stop vibrate"
+       onclick="
+            if( 'vibrate' in navigator )
+                navigator.vibrate(0);
+       " />
+
 </body>
 </html>
