@@ -20,26 +20,65 @@
 </head>
 <body>
 <h1>Vibration API</h1>
+<pre>
+
+//вибросигнал длительностью 1 сек
 <input type="button" value="vibrate 1 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(1000);
        " />
+
+navigator.vibrate(1000);
+<input type="button" value="vibrate 1 sec"
+       onclick="
+            if( 'vibrate' in navigator )
+                navigator.vibrate(1000);
+       " />
+
+//последовательность: вибросигнал 0.5 сек, пауза 1 сек, вибросигнал 0.3 сек
+navigator.vibrate([500, 1000, 300]),
+<input type="button" value="vibrate 0.5 sec, wait 0.1 sec, vibrate 0.3 sec"
+       onclick="
+            if( 'vibrate' in navigator )
+                navigator.vibrate([500, 100, 300]);
+       " />
+
+//последовательность множества сигналов
+navigator.vibrate( ('111111111111111111'+
+                    '111111111111111111').split('')
+                                         .map(function(){ return 300; }) ),
 <input type="button" value="vibrate many times"
        onclick="
             if( 'vibrate' in navigator )
-                navigator.vibrate([200,100,200,100,200,50,200]);
+                navigator.vibrate( ('111111111111111111'+
+                                    '111111111111111111').split('')
+                                                         .map(function(){ return 300;}) )
        " />
+
+//остановить вибросигнал
+navigator.vibrate(0);
+<input type="button" value="vibrate stop"
+       onclick="
+            if( 'vibrate' in navigator )
+                navigator.vibrate(0);
+       " />
+
+//вибросигнал длительностью 10 сек
 <input type="button" value="vibrate 10 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(10000);
        " />
-<input type="button" value="stop vibrate"
+
+//остановить вибросигнал
+navigator.vibrate([]),
+<input type="button" value="vibrate stop"
        onclick="
             if( 'vibrate' in navigator )
-                navigator.vibrate(0);
+                navigator.vibrate([]);
        " />
+</pre>
 
 </body>
 </html>
