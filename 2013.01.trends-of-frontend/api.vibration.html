@@ -1,10 +1,31 @@
 <html>
+<head>
+<script type="text/javascript">
+		alert("navigator.vibrate?  " + (navigator.vibrate ? "Yes" : "No"));
+		alert("navigator.webkitVibrate?  " + (navigator.webkitVibrate ? "Yes" : "No"));
+		alert("navigator.oVibrate?  " + (navigator.oVibrate ? "Yes" : "No"));
+		function startVibrate(level) {
+			navigator.vibrate(level);
+		}
+
+		var vibrateInterval;
+		function startPeristentVibrate(level, interval) {
+			vibrateInterval = setInterval(function() {
+				startVibrate(level);
+			}, interval);
+		}
+		
+		function stopVibrate() {
+			if(vibrateInterval) clearInterval(vibrateInterval);
+			navigator.vibrate(0);
+		}
+</script>
+</head>
 <body>
-<h1></h1>
 <h1>Vibration API</h1>
 <input type="button" value="Vibrate 1 sec"
        onclick="
-            if( "vibrate" in navigator )
+            if( 'vibrate' in navigator )
                 navigator.vibrate(1000);
        ">
 </body>
