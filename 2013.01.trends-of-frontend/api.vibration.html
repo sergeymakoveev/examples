@@ -9,19 +9,14 @@
 </head>
 <body>
 <h1>Vibration API</h1>
-<pre><code class="javascript">
-//вибросигнал длительностью 1 сек
-navigator.vibrate(1000);
-
-</code></pre>
 <input type="button" value="vibrate 1 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(1000);
        " />
 <pre><code class="javascript">
-//последовательность: вибросигнал 0.5 сек, пауза 1 сек, вибросигнал 0.3 сек
-navigator.vibrate([500, 1000, 300]);
+//вибросигнал длительностью 1 сек
+navigator.vibrate(1000);
 
 </code></pre>
 <input type="button" value="vibrate 0.5 sec, wait 0.1 sec, vibrate 0.3 sec"
@@ -30,10 +25,8 @@ navigator.vibrate([500, 1000, 300]);
                 navigator.vibrate([500, 100, 300]);
        " />
 <pre><code class="javascript">
-//последовательность множества сигналов
-navigator.vibrate( ('111111111111111111'+
-                    '111111111111111111').split('')
-                                         .map(function(){ return 300; }) );
+//последовательность: вибросигнал 0.5 сек, пауза 1 сек, вибросигнал 0.3 сек
+navigator.vibrate([500, 1000, 300]);
 
 </code></pre>
 <input type="button" value="vibrate many times"
@@ -44,8 +37,10 @@ navigator.vibrate( ('111111111111111111'+
                                                          .map(function(){ return 300;}) )
        " />
 <pre><code class="javascript">
-//остановить вибросигнал
-navigator.vibrate(0);
+//последовательность множества сигналов
+navigator.vibrate( ('111111111111111111'+
+                    '111111111111111111').split('')
+                                         .map(function(){ return 300; }) );
 
 </code></pre>
 <input type="button" value="vibrate stop"
@@ -54,8 +49,8 @@ navigator.vibrate(0);
                 navigator.vibrate(0);
        " />
 <pre><code class="javascript">
-//вибросигнал длительностью 10 сек
-navigator.vibrate(10000);
+//остановить вибросигнал
+navigator.vibrate(0);
 
 </code></pre>
 <input type="button" value="vibrate 10 sec"
@@ -64,8 +59,8 @@ navigator.vibrate(10000);
                 navigator.vibrate(10000);
        " />
 <pre><code class="javascript">
-//остановить вибросигнал
-navigator.vibrate([]);
+//вибросигнал длительностью 10 сек
+navigator.vibrate(10000);
 
 </code></pre>
 <input type="button" value="vibrate stop"
@@ -73,5 +68,10 @@ navigator.vibrate([]);
             if( 'vibrate' in navigator )
                 navigator.vibrate([]);
        " />
+<pre><code class="javascript">
+//остановить вибросигнал
+navigator.vibrate([]);
+
+</code></pre>
 </body>
 </html>
