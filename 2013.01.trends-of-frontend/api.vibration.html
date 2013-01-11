@@ -1,32 +1,41 @@
 <html>
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <title>Examples/Vibration API</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<script src="//yandex.st/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="//yandex.st/highlightjs/7.3/styles/tomorrow-night-eighties.min.css">
+<script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <h1>Vibration API</h1>
-<pre>
-
+<pre><code class="javascript">
 //вибросигнал длительностью 1 сек
 navigator.vibrate(1000);
+
+</code></pre>
 <input type="button" value="vibrate 1 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(1000);
        " />
-
+<pre><code class="javascript">
 //последовательность: вибросигнал 0.5 сек, пауза 1 сек, вибросигнал 0.3 сек
-navigator.vibrate([500, 1000, 300]),
+navigator.vibrate([500, 1000, 300]);
+
+</code></pre>
 <input type="button" value="vibrate 0.5 sec, wait 0.1 sec, vibrate 0.3 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate([500, 100, 300]);
        " />
-
+<pre><code class="javascript">
 //последовательность множества сигналов
 navigator.vibrate( ('111111111111111111'+
                     '111111111111111111').split('')
-                                         .map(function(){ return 300; }) ),
+                                         .map(function(){ return 300; }) );
+
+</code></pre>
 <input type="button" value="vibrate many times"
        onclick="
             if( 'vibrate' in navigator )
@@ -34,30 +43,35 @@ navigator.vibrate( ('111111111111111111'+
                                     '111111111111111111').split('')
                                                          .map(function(){ return 300;}) )
        " />
-
+<pre><code class="javascript">
 //остановить вибросигнал
 navigator.vibrate(0);
+
+</code></pre>
 <input type="button" value="vibrate stop"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(0);
        " />
-
+<pre><code class="javascript">
 //вибросигнал длительностью 10 сек
+navigator.vibrate(10000);
+
+</code></pre>
 <input type="button" value="vibrate 10 sec"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate(10000);
        " />
-
+<pre><code class="javascript">
 //остановить вибросигнал
-navigator.vibrate([]),
+navigator.vibrate([]);
+
+</code></pre>
 <input type="button" value="vibrate stop"
        onclick="
             if( 'vibrate' in navigator )
                 navigator.vibrate([]);
        " />
-</pre>
-
 </body>
 </html>
