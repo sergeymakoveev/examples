@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Page Visibility API</h1>
+<p><b>Open debug console please.</b></p>
 <input type="button" value="Start logging page visibility"
        onclick="document.i = setInterval(
                                 function(){ console.log( 'PageVisibility:'+getPageVisibility(),
@@ -17,8 +18,33 @@
 <input type="button" value="Stop logging page visibility"
        onclick="clearInterval(document.i);" />
 <pre><code class="javascript">
-//вибросигнал длительностью 1 сек
-navigator.vibrate(1000);
+// document.hidden = (true|false)
+function getPageVisibility(){
+    return 'hidden'       in document ? document.hidden :
+           'mozHidden'    in document ? document.mozHidden :
+           'webkitHidden' in document ? document.webkitHidden :
+                                        'not supported';
+}
+
+// document.visibilityState = ("hidden"|"visible"|"prerender"|"unloaded")
+function getPageVisibilityState(){
+    return 'visibilityState'       in document ? document.visibilityState :
+           'mozVisibilityState'    in document ? document.mozVisibilityState :
+           'webkitVisibilityState' in document ? document.webkitVisibilityState :
+                                   'not supported';
+}
+
+// 'visibilitychange' - событие смены состояния отображаемости страницы
+document.addEventListener(
+    'hidden'       in document ? 'visibilitychange' :
+    'mozHidden'    in document ? 'mozvisibilitychange' :
+    'webkitHidden' in document ? 'webkitvisibilitychange' :
+                                 'not supported',
+    function() { document.title = getPageVisibilityState();
+                 console.warn('PageHidden:'+getPageVisibility(),
+                              'PageVisibilityState:'+getPageVisibilityState()); },
+    false
+);
 
 </code></pre>
 <script>
@@ -34,6 +60,16 @@ navigator.vibrate(1000);
                'webkitVisibilityState' in document ? document.webkitVisibilityState :
                                        'not supported';
     }
+    document.addEventListener(
+        'hidden'       in document ? 'visibilitychange' :
+        'mozHidden'    in document ? 'mozvisibilitychange' :
+        'webkitHidden' in document ? 'webkitvisibilitychange' :
+                                     'not supported',
+        function() { document.title = getPageVisibilityState();
+                     console.warn('PageHidden:'+getPageVisibility(),
+                                  'PageVisibilityState:'+getPageVisibilityState()); },
+        true
+    );
 </script>
 </code></pre>
 </body>
