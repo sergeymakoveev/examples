@@ -3,13 +3,13 @@
 <title>Examples/Page Visibility API</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <script src="//yandex.st/jquery/1.8.3/jquery.min.js"></script>
+<script src="logger.js"></script>
 <link rel="stylesheet" href="//yandex.st/highlightjs/7.3/styles/tomorrow-night-eighties.min.css">
 <script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <h1>Page Visibility API</h1>
-<p><b>Open debug console please.</b></p>
 <input type="button" value="Start logging page visibility"
        onclick="document.i = setInterval(
                                 function(){ console.log( 'PageVisibility:'+getPageVisibility(),
@@ -48,7 +48,8 @@ document.addEventListener(
 
 </code></pre>
 <script>
-    function getPageVisibility(){
+    var logger = new Logger();
+    function getPageHidden(){
         return 'hidden'       in document ? document.hidden :
                'mozHidden'    in document ? document.mozHidden :
                'webkitHidden' in document ? document.webkitHidden :
@@ -66,8 +67,10 @@ document.addEventListener(
         'webkitHidden' in document ? 'webkitvisibilitychange' :
                                      'not supported',
         function() { document.title = getPageVisibilityState();
-                     console.warn('PageHidden:'+getPageVisibility(),
-                                  'PageVisibilityState:'+getPageVisibilityState()); },
+                     console.warn('PageHidden:'+getPageHidden(),
+                                  'PageVisibilityState:'+getPageVisibilityState());
+                     logger.log('PageHidden:'+getPageHidden(), getPageHidden()?'#f00':'#0f0');
+                     logger.log('PageVisibilityState:'+getPageVisibilityState()); },
         true
     );
 </script>
