@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Examples/Ambient Light API</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<script src="//yandex.st/jquery/1.8.3/jquery.min.js"></script>
+<script src="logger.js"></script>
+<link rel="stylesheet" href="//yandex.st/highlightjs/7.3/styles/tomorrow-night-eighties.min.css">
+<script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>Ambient Light API</h1>
+<pre><code class="javascript">
+window.addEventListener(
+    'devicelight',
+    // e.value - значение освещенности в люксах
+    function(e) { logger.log('devicelight: ' + e.value); },
+    false
+);
+
+window.addEventListener(
+    'lightlevel',
+    // e.value = ("normal"|"dim"|"bright")
+    function(e) { logger.log('lightlevel: ' + e.value); },
+    false
+);
+</code></pre>
+
+<script>
+var logger = new Logger();
+logger.log(keys(window, /light/i).join('<br />'));
+window.addEventListener(
+    'devicelight',
+    function(e) { logger.log('devicelight: ' + e.value); },
+    false
+);
+
+window.addEventListener(
+    'lightlevel',
+    function(e) { logger.log('lightlevel: ' + e.value); },
+    false
+);
+
+</script>
+
+</body>
+</html>
