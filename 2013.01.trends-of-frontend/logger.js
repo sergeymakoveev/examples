@@ -25,3 +25,11 @@ function Logger(){
     this.el.style.minHeight='200px';
     document.body.appendChild(this.el);
 };
+
+function keys(obj, expr){
+    var rez=[];
+    for(var k in obj)
+        if(expr.test(k))
+            rez.push(k);
+    return rez;
+}
