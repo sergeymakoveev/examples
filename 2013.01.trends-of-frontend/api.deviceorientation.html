@@ -27,9 +27,11 @@ window.addEventListener(
     }
 );
 </code></pre>
-<div id='da' style="display:inline-block;background-color:#f00;heihgt:20px;"></div><br />
-<div id='db' style="display:inline-block;background-color:#0f0;heihgt:20px;"></div><br />
-<div id='dg' style="display:inline-block;background-color:#00f;heihgt:20px;"></div><br />
+<div style="padding:50px;">
+    <div id='da' style="display:inline-block;background-color:#f00;height:50px;"></div><br />
+    <div id='db' style="display:inline-block;background-color:#0f0;height:50px;"></div><br />
+    <div id='dg' style="display:inline-block;background-color:#00f;height:50px;"></div><br />
+</div>
 <input type='button'
        onclick="window.removeEventListener('deviceorientation', ondeviceorientation);"
        value="remove deviceorientation event" />
@@ -45,11 +47,11 @@ var da = $('#da'),
     dg = $('#dg');
 function ondeviceorientation(e) {
     da.text(e.alpha)
-      .width(Math.abs(Math.round(e.alpha)));
+      .width(Math.abs(Math.round(e.alpha))*2);
     db.text(e.beta)
-      .width(Math.abs(Math.round(e.beta)));
+      .width(Math.abs(Math.round(e.beta))*2);
     dg.text(e.gamma)
-      .width(Math.abs(Math.round(e.gamma)));
+      .width(Math.abs(Math.round(e.gamma))*2);
 };
 window.addEventListener("deviceorientation", ondeviceorientation);
 </script>

@@ -37,7 +37,8 @@ var logger = new Logger();
 window.addEventListener(
     'userproximity',
     function(e) { logger.log(e.type+': '+(e.near ? 'near':'far'), e.near ? '#f00':'#00f');
-                  navigator.vibrate(300); },
+                  navigator.vibrate(300);
+                  document.body.style.backgroundColor = 'rgb('+[color()+50, color()+50, color()+50].join(',')+')'; },
     false
 );
 window.addEventListener(

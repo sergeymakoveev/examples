@@ -20,10 +20,11 @@ function Logger(){
     document.body.appendChild(this.button);
     
     this.el = document.createElement('div');
+    document.body.appendChild(this.el);
+    this.el.style.width='80%';
     this.el.style.border='1px dotted #000';
     this.el.style.backgroundColor='#ccc';
-    this.el.style.minHeight='200px';
-    document.body.appendChild(this.el);
+    this.el.style.minHeight='100px';
 };
 
 function keys(obj, expr){
@@ -38,4 +39,8 @@ function vibrate(arguments){
     navigator &&
     navigator.vibrate &&
     navigator.vibrate(arguments);
+}
+
+function color(){
+    return (Math.round(Math.random()*100)) % 256;
 }
