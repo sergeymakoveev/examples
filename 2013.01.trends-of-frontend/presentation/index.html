@@ -231,7 +231,7 @@ navigator.vibrate([]);
                         </p>
                         </small>
 					</section>
-					<section>
+    				<section>
 						<h2>Screen Orientation API</h2>
     					<p style="text-align:left">
                             <em>Предназначен для получения событий при смене ориентации экрана устройства и информации о текущем состоянии ориентации экрана.</em><br />
@@ -252,6 +252,30 @@ screen.addEventListener(
                             Пример: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.screenorientation.html" target="_blank">Screen Orientation API example</a>.
                             <br />
                             Источники: <a href="http://www.w3.org/TR/screen-orientation/" target="_blank">W3C/Screen Orientation API</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference/orientationchange" target="_blank">MDN/orientationchange event</a>.
+                        </p>
+                        </small>
+					</section>
+    				<section>
+						<h2>Device Orientation API</h2>
+    					<p style="text-align:left">
+                            <em>Предназначен для получения событий при смене ориентации устройства и информации о текущем состоянии ориентации.</em><br />
+                            <small>Реализован в Chrome 7, Firefox 3.6, Android 3, Firefox Mobile 3.6, Opera Mobile 12, Safari Mobile 4.2.</small>
+                        </p>
+<pre><code style='max-height:300px;oveflow:auto;'>// window.ondeviceorientation - событие смены ориентации устройства
+// e.alpha, e.beta, e.gamma - текущее значение ориентации экрана
+//                            по осям x, y, z соответственно
+window.addEventListener(
+    "deviceorientation",
+    function(e){
+        console.log(e.alpha, e.beta, e.gamma);
+    }
+);
+</code></pre>
+                        <small>
+                        <p style="text-align:left;margin-top:10px;">
+                            Пример: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.deviceorientation.html" target="_blank">Device Orientation API example</a>.
+                            <br />
+                            Источники: <a href="http://www.w3.org/TR/orientation-event/#deviceorientation/" target="_blank">W3C/deviceorientation</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/Orientation_and_motion_data_explained" target="_blank">MDN/Orientation and motion data explained</a>.
                         </p>
                         </small>
 					</section>
@@ -408,7 +432,7 @@ IANA/Permanent URI Schemes</a>.
     			<section>
     			    <h1>Итого</h1>
                     <p style="text-align:left;">
-                        Обобщая развитие веб-стандартов в сфере фронтенд-технологий (css, js, html), можно увидеть общую тенденцию инновационных разработок, конечной целью которых является становление веб-интерфейсов как стандарта де-факто в качестве интерфейсов приложений.
+                        Обобщая развитие веб-стандартов в сфере фронтенд-технологий (css, js, html), можно увидеть общую тенденцию разработок, конечной целью которых является становление веб-интерфейсов как стандарта де-факто в качестве интерфейсов приложений.
                         Уже сейчас можно воспользоваться новыми API при помощи <a href="http://modernizr.com/download/" target="_blank">Modernizr</a>.
                     </p>
 				</section>
