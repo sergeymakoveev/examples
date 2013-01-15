@@ -17,7 +17,7 @@ Open <a href="javascript:(function(F,i,r,e,b,u,g,L,I,T,E){if(F.getElementById(b)
 screen.addEventListener(
     "mozorientationchange",
     function() {
-        logger.log("the orientation of the device is now " + screen.mozOrientation);
+        console.log("the orientation of the device is now " + screen.mozOrientation);
     }
 );
 </code></pre>
@@ -29,7 +29,7 @@ screen.addEventListener(
     "mozorientationchange",
     function() {
         document.title = screen.mozOrientation;
-        navigator.vibrate(300);
+        vibrate(300);
         logger.log("the orientation of the device is now " + screen.mozOrientation);
         $(document.body).css({'background-color':{ 'landscape-primary':'#f00',
                                                    'landscape-secondary':'#0f0',
