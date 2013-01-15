@@ -33,3 +33,9 @@ function keys(obj, expr){
             rez.push(k);
     return rez;
 }
+
+function vibrate(arguments){
+    navigator &&
+    navigator.vibrate &&
+    navigator.vibrate(arguments);
+}
