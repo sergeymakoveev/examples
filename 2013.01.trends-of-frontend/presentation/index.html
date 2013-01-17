@@ -6,7 +6,7 @@
 
 		<title>Тренды фронтэнда</title>
 
-		<meta name="description" content="Презентация к докладу Тренды фронтэнда">
+		<meta name="description" content="Тренды фронтэнда/Презентация к докладу">
 		<meta name="author" content="Sergey Makoveev">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -27,6 +27,21 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
         <style>
+            body > .qr-code {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                }
+            body > .qr-code-link {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: #71E9F4;
+                font-size: 30px;
+                text-decoration: none;
+                padding: 20px;
+                }
             .reveal pre {
                 width:100%!important;
                 margin:0!important;
@@ -35,10 +50,28 @@
                 font-family: Impact, sans-serif;
                 }
         </style>
+        <script>
+        function fullscreen(el){
+            'requestFullScreen'       in el ? el.requestFullScreen() :
+            'mozRequestFullScreen'    in el ? el.mozRequestFullScreen() :
+            'webkitRequestFullScreen' in el ? el.webkitRequestFullScreen() :
+                                              alert('Fullscreen API not supported.');
+        };
+        function fullscreencancel(){
+            'cancelFullScreen'       in document ? document.cancelFullScreen() :
+            'mozCancelFullScreen'    in document ? document.mozCancelFullScreen() :
+            'webkitCancelFullScreen' in document ? document.webkitCancelFullScreen() :
+                                                   alert('Fullscreen API not supported.');
+        };
+        </script>
 	</head>
 
 	<body>
-
+        <input type='button' value='F' onclick="fullscreen(document.body)" /><input type='button' value='W' onclick="fullscreencancel()" />
+        <a class="qr-code" href='http://goo.gl/2CkWb'>
+            <img alt="QR code" src="http://goo.gl/2CkWb.qr" />
+        </a>
+        <a class='qr-code-link' href='http://goo.gl/2CkWb'>http://goo.gl/2CkWb</a>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -47,20 +80,18 @@
 				<section>
 					<h1>Тренды<br />фронтэнда</h1>
 					<h3>Новые возможности браузеров</h3>
+                    <a href='http://goo.gl/2CkWb'>http://goo.gl/2CkWb</a>
 					<p>
 						<small><a href="http://sergey.makoveev.info">Sergey Makoveev</a> / <a href="http://twitter.com/sergeymakoveev">@sergeymakoveev</a></small>
 					</p>
-                    <hr />
-                    <a href='http://goo.gl/2CkWb'>
-                        http://goo.gl/2CkWb<br />
-                        <img alt="QR code" src="http://goo.gl/2CkWb.qr" />
-                    </a>
+                    <br />
+                    <br />
 				</section>
 
 				<section>
                     <section>
-    					<h2>Приложение</h2>
-                        <p style="text-align:left"><em>В настоящее время &laquo;качественное&raquo; приложение содержит в своей архитектуре:</em></p>
+    					<h2>Качественный сервис</h2>
+                        <p style="text-align:left"><em>В настоящее время &laquo;качественное&raquo; приложение (сервис) содержит в своей структуре:</em></p>
                         <ul>
                             <li class="fragment">клиентские приложения для популярных OS (iOS, Android, Windows, Linux, ...);</li>
                             <li class="fragment">расширения для популярных браузеров;</li>
@@ -70,14 +101,14 @@
                         </ul>
                     </section>
                     <section>
-                        <h2>Приложение</h2>
+                        <h2>Качественный сервис</h2>
                         <p style="text-align:left"><em>Совершенно очевидно что:</em></p>
                         <small>
                         <ul>
                             <li class="fragment">для развития и поддержки подобного приложения требуются усилия слаженной команды разработчиков, включающей в себя специалистов с опытом разработки приложений под соответствующие платформы, одновременно обладающих опытом и знаниями в смежных областях (это как минимум знание архитектуры веб-приложений и технологий, применяемых для их реализации);</li>
-                            <li class="fragment">возрастают "накладные расходы" на поддержание инфраструктуры самого процесса разработки (для каждого составляющего этой архитектуры требуется написание всего спектра тестов - юнит, функциональных, нагрузочных; ведение отдельного баг-трекера, и т.д. ...);</li>
-                            <li class="fragment">многократно усложняется введение нового функционала в сервис (поддержка которого должна быть одновременно и единообразно реализована во всех его архитектурных частях);</li>
-                            <li class="fragment">подобная архитектура изначально расположена к появлению ошибок в следствии рассогласования взаимодействия ее составляющих, вызванных в первую очередь разнообразием клиентских приложений и разнообразием их версий на устройствах пользователей.</li>
+                            <li class="fragment">возрастают "накладные расходы" на поддержание инфраструктуры самого процесса разработки (для каждого составляющего этой структуры требуется написание всего спектра тестов - юнит, функциональных, нагрузочных; ведение отдельного баг-трекера, и т.д. ...);</li>
+                            <li class="fragment">многократно усложняется введение нового функционала в сервис (поддержка которого должна быть одновременно и единообразно реализована во всех его частях);</li>
+                            <li class="fragment">подобная структура изначально расположена к появлению ошибок в следствии рассогласования взаимодействия ее составляющих, вызванных в первую очередь разнообразием клиентских приложений и разнообразием их версий на устройствах пользователей.</li>
                         </ul>
                         </small>
                     </section>
@@ -85,7 +116,7 @@
 
     			<section>
 					<h2>Веб-приложение</h2>
-                    <p style="text-align:left"><em>Архитектура такого приложения выглядит гораздо лаконичней:</em></p>
+                    <p style="text-align:left"><em>Структура такого приложения выглядит гораздо лаконичней:</em></p>
                     <small>
                     <ul>
                         <li class="fragment">веб-итерфейс;</li>
@@ -98,7 +129,7 @@
                     <small>
                     <ul>
                         <li class="fragment">трудоемкость (и, как следствие, стоимость) поддержки и развития веб-приложения будет несравнимо меньше;</li>
-                        <li class="fragment">исключаются практически все минусы, перечисленные выше, в силу того что при реализации всех частей архитектуры используются мономорфные технологии (js, css, html), а следовательно мономорфная инфраструктура самого процесса разработки и команда разработчиков.</li>
+                        <li class="fragment">исключаются практически все минусы, перечисленные выше, в силу того что при реализации всех частей используются мономорфные технологии (js, css, html), а следовательно мономорфная инфраструктура самого процесса разработки и команда разработчиков.</li>
                     </ul>
                     </small>
                     <br /><br />
@@ -114,6 +145,11 @@
                         <hr />
                         <p style="text-align:left"><span style="color:gold">Внимание!</span> Все примеры разработаны для <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta" target="_blank">Firefox Beta для Google Android</a>, частично поддерживаются <a href="http://www.mozilla.org/en-US/firefox/aurora/" target="_blank">Mozilla Firefox Aurora</a>, <a href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/" target="_blank">Firefox Nightly</a>.</p>
 					</section>
+
+
+
+<!-- Battery Status API -->
+
 					<section>
 						<h2>Battery Status API</h2>
 						<p style="text-align:left">
@@ -164,10 +200,15 @@ ondischargingtimechange();
                             Источники: <a href="http://www.w3.org/TR/battery-status/" target="_blank">W3C Battery Status API</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.battery" target="_blank">MDN/window.navigator.battery</a>, <a href="http://davidwalsh.name/battery-api" target="_blank">David Walsh/Battery Status API</a>.
                         </p>
                         </small>
-					</section>
-					<section>
-    					<h2>Vibration API</h2>
-						<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Vibration API -->
+
+                    <section>
+                        <h2>Vibration API</h2>
+                        <p style="text-align:left">
                             <em>Предназначен для управления вибросигналом устройства.</em><br />
                             <small>Реализован в Chrome, Firefox v11, Chrome Android, Firefox Mobile v11.</small>
                         </p>
@@ -225,15 +266,25 @@ navigator.vibrate([]);
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Примеры: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.vibration.html" target="_blank">Vibration API example</a>, <a href="http://davidwalsh.name/demo/vibrate.php" target="_blank">David Walsh/Vibration API/Example</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.vibration.html" target="_blank">Vibration API example</a>,
+                            <a href="http://davidwalsh.name/demo/vibrate.php" target="_blank">David Walsh/Vibration API/Example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/vibration/" target="_blank">W3C Vibration API</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.vibrate" target="_blank">MDN/window.navigator.vibrate</a>, <a href="http://davidwalsh.name/vibration-api" target="_blank">David Walsh/Vibration API</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/vibration/" target="_blank">W3C Vibration API</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.vibrate" target="_blank">MDN/window.navigator.vibrate</a>,
+                            <a href="http://davidwalsh.name/vibration-api" target="_blank">David Walsh/Vibration API</a>.
                         </p>
                         </small>
-					</section>
-    				<section>
-						<h2>Screen Orientation API</h2>
-    					<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Screen Orientation API -->
+
+                    <section>
+                        <h2>Screen Orientation API</h2>
+                        <p style="text-align:left">
                             <em>Предназначен для получения событий при смене ориентации экрана устройства и информации о текущем состоянии ориентации экрана.</em><br />
                             <small>Реализован в Firefox Mobile с браузерным префиксом.</small>
                         </p>
@@ -249,15 +300,23 @@ screen.addEventListener(
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Пример: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.screenorientation.html" target="_blank">Screen Orientation API example</a>.
+                            Пример:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.screenorientation.html" target="_blank">Screen Orientation API example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/screen-orientation/" target="_blank">W3C/Screen Orientation API</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference/orientationchange" target="_blank">MDN/orientationchange event</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/screen-orientation/" target="_blank">W3C/Screen Orientation API</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference/orientationchange" target="_blank">MDN/orientationchange event</a>.
                         </p>
                         </small>
-					</section>
-    				<section>
-						<h2>Device Orientation API</h2>
-    					<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Device Orientation API -->
+
+                    <section>
+                        <h2>Device Orientation API</h2>
+                        <p style="text-align:left">
                             <em>Предназначен для получения событий при смене ориентации устройства и информации о текущем состоянии ориентации.</em><br />
                             <small>Реализован в Chrome 7, Firefox 3.6, Android 3, Firefox Mobile 3.6, Opera Mobile 12, Safari Mobile 4.2.</small>
                         </p>
@@ -273,15 +332,63 @@ window.addEventListener(
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Пример: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.deviceorientation.html" target="_blank">Device Orientation API example</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.deviceorientation.html" target="_blank">Device Orientation API example</a>,
+                            <a href="http://people.opera.com/richt/release/demos/orientation/" target="_blank">Opera/orientation</a>,
+                            <a href="http://people.opera.com/richt/release/demos/orientation/marinecompass/" target="_blank">Opera/compass</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/orientation-event/#deviceorientation/" target="_blank">W3C/deviceorientation</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/Orientation_and_motion_data_explained" target="_blank">MDN/Orientation and motion data explained</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/orientation-event/#deviceorientation" target="_blank">W3C/deviceorientation</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/Orientation_and_motion_data_explained" target="_blank">MDN/Orientation and motion data explained</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference/deviceorientation" target="_blank">MDN/deviceorientation</a>,
+                            <a href="http://dev.opera.com/articles/view/w3c-device-orientation-api/" target="_blank">Opera/Orientation API</a>.
                         </p>
                         </small>
-					</section>
-        			<section>
-						<h2>Ambient Light Events</h2>
-    					<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Device Motion API -->
+
+                    <section>
+                        <h2>Device Motion API</h2>
+                        <p style="text-align:left">
+                            <em>Предназначен для получения событий и информации от датчика-акселерометра о перемещении устройства.</em><br />
+                            <small>Реализован в Chrome 7, Firefox 3.6, Android 3, Firefox Mobile 3.6, Opera Mobile 12, Safari Mobile 4.2.</small>
+                        </p>
+<pre><code style='max-height:300px;oveflow:auto;'>// window.ondevicemotion - событие перемещения устройства
+// ускорение по осям x, y, z соответственно:
+// e.acceleration.x, e.acceleration.y, e.acceleration.z
+// значение ускорения по осям x, y, z (с учетом гравитации) соответственно:
+// e.accelerationIncludingGravity.x, e.accelerationIncludingGravity.y, e.accelerationIncludingGravity.z
+// значение угловой скорости вращения по осям z, x, y (в градусах) соответственно:
+// e.rotationRate.alpha, e.rotationRate.beta, e.rotationRate.gamma
+window.addEventListener( "devicemotion",
+                         function(e){ console.dir(e.acceleration);
+                                      console.dir(e.accelerationIncludingGravity);
+                                      console.dir(e.rotationRate); }; );
+</code></pre>
+                        <small>
+                        <p style="text-align:left;margin-top:10px;">
+                            Пример:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.devicemotion.html" target="_blank">Device Motion API example</a>.
+                            <br />
+                            Источники:
+                            <a href="http://www.w3.org/TR/orientation-event/#devicemotion" target="_blank">W3C/devicemotion</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/Orientation_and_motion_data_explained" target="_blank">MDN/Orientation and motion data explained</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference/devicemotion" target="_blank">MDN/devicemotion</a>,
+                            <a href="http://dev.opera.com/articles/view/w3c-device-orientation-api/" target="_blank">Opera/Orientation API</a>.
+                        </p>
+                        </small>
+                    </section>
+
+
+
+<!-- Ambient Light Events -->
+
+                    <section>
+                        <h2>Ambient Light Events</h2>
+                        <p style="text-align:left">
                             <em>Предназначены для получения событий от датчика освещенности устройства.</em><br />
                             <small>Реализованы в Firefox Mobile.</small>
                         </p>
@@ -300,15 +407,25 @@ window.addEventListener(
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Примеры: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.ambientlight.html" target="_blank">Ambient Light API example</a>, <a href="http://dl.dropbox.com/u/8727858/mozilla/light/light.html" target="_blank">Doug Turner/Ambient Light Events/Example</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.ambientlight.html" target="_blank">Ambient Light API example</a>,
+                            <a href="http://dl.dropbox.com/u/8727858/mozilla/light/light.html" target="_blank">Doug Turner/Ambient Light Events/Example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/ambient-light/" target="_blank">W3C Ambient Light Events</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/DeviceLightEvent" target="_blank">MDN/DeviceLightEvent</a>, <a href="http://dougturner.wordpress.com/2012/03/26/device-light-sensor/" target="_blank">Doug Turner/Ambient Light Events</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/ambient-light/" target="_blank">W3C Ambient Light Events</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/DeviceLightEvent" target="_blank">MDN/DeviceLightEvent</a>,
+                            <a href="http://dougturner.wordpress.com/2012/03/26/device-light-sensor/" target="_blank">Doug Turner/Ambient Light Events</a>.
                         </p>
                         </small>
-					</section>
-        			<section>
-						<h2>Proximity Events</h2>
-    					<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Proximity Events -->
+
+                    <section>
+                        <h2>Proximity Events</h2>
+                        <p style="text-align:left">
                             <em>События от датчика приближения устройства.</em><br />
                             <small>Реализованы в Firefox Mobile v15.</small>
                         </p>
@@ -331,14 +448,26 @@ window.addEventListener(
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Примеры: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.proximity.html" target="_blank">Proximity Events example</a>, <a href="http://dl.dropbox.com/u/8727858/mozilla/proximity/pro.html" target="_blank">Doug Turner/Device Proximity/Exapmle</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.proximity.html" target="_blank">Proximity Events example</a>,
+                            <a href="http://dl.dropbox.com/u/8727858/mozilla/proximity/pro.html" target="_blank">Doug Turner/Device Proximity/Exapmle</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/proximity/" target="_blank">W3C Proximity Events</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/DeviceProximityEvent" target="_blank">MDN/DeviceProximityEvent</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/UserProximityEvent" target="_blank">MDN/UserProximityEvent</a>, <a href="https://dougturner.wordpress.com/2012/03/22/device-proximity-sensor/" target="_blank">Doug Turner/Device Proximity</a>, <a href="http://dougturner.wordpress.com/2012/05/15/user-proximity-sensor-4/" target="_blank">Doug Turner/User Proximity</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/proximity/" target="_blank">W3C Proximity Events</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/DeviceProximityEvent" target="_blank">MDN/DeviceProximityEvent</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/UserProximityEvent" target="_blank">MDN/UserProximityEvent</a>,
+                            <a href="https://dougturner.wordpress.com/2012/03/22/device-proximity-sensor/" target="_blank">Doug Turner/Device Proximity</a>,
+                            <a href="http://dougturner.wordpress.com/2012/05/15/user-proximity-sensor-4/" target="_blank">Doug Turner/User Proximity</a>.
                         </p>
                         </small>
-					</section>
-        			<section>
-					    <h2>Page Visibility API</h2>
+                    </section>
+
+
+
+<!-- Page Visibility API -->
+
+                    <section>
+                        <h2>Page Visibility API</h2>
     					<p style="text-align:left">
                             <em>Позволяет определить отображается ли страница на экране устройства.</em><br />
                             <small>Реализован с браузерными префиксами в Chrome v13, Firefox v10, Internet Explorer v.10, Opera v12.10.</small>
@@ -358,15 +487,27 @@ document.addEventListener(
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Примеры: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.pagevisibility.html" target="_blank">Page Visibility API example</a>, <a href="http://davidwalsh.name/demo/page-visibility.php" target="_blank">David Walsh/Page Visibility API/Example</a>, <a href="http://www.samdutton.com/pageVisibility/" target="_blank">Mozilla/Page Visibility API/Example</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.pagevisibility.html" target="_blank">Page Visibility API example</a>,
+                            <a href="http://davidwalsh.name/demo/page-visibility.php" target="_blank">David Walsh/Page Visibility API/Example</a>,
+                            <a href="http://www.samdutton.com/pageVisibility/" target="_blank">Mozilla/Page Visibility API/Example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/page-visibility/" target="_blank">W3C Page Visibility</a>, <a href="http://davidwalsh.name/page-visibility" target="_blank">David Walsh/Page Visibility API</a>, <a href="https://developers.google.com/chrome/whitepapers/pagevisibility" target="_blank">Chrome/Page Visibility API</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/Using_the_Page_Visibility_API" target="_blank">MDN/Page Visibility API</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/page-visibility/" target="_blank">W3C Page Visibility</a>,
+                            <a href="http://davidwalsh.name/page-visibility" target="_blank">David Walsh/Page Visibility API</a>,
+                            <a href="https://developers.google.com/chrome/whitepapers/pagevisibility" target="_blank">Chrome/Page Visibility API</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/Using_the_Page_Visibility_API" target="_blank">MDN/Page Visibility API</a>.
                         </p>
                         </small>
-    				</section>
-        			<section>
-					    <h2>Fullscreen API</h2>
-    					<p style="text-align:left">
+                    </section>
+
+
+
+<!-- Fullscreen API -->
+
+                    <section>
+                        <h2>Fullscreen API</h2>
+                        <p style="text-align:left">
                             <em>Предоставляет возможности работы с полноэкранным режимом.</em><br />
                             <small>Реализован с браузерными префиксами в Chrome v23, Firefox v16, Safari v5.1, Opera v12.10.</small>
                         </p>
@@ -385,17 +526,33 @@ document.fullscreenElement
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
-                            Примеры: <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.fullscreen.html" target="_blank">Fullscreen API/Example</a>, <a href="https://developer.mozilla.org/samples/domref/fullscreen.html" target="_blank">MDN/Fullscreen API/Example</a>, <a href="http://davidwalsh.name/demo/fullscreen.php" target="_blank">David Walsh/Fullscreen API/Example</a>.
+                            Примеры:
+                            <a href="https://c9.io/sergeymakoveev/examples/workspace/2013.01.trends-of-frontend/api.fullscreen.html" target="_blank">Fullscreen API/Example</a>,
+                            <a href="https://developer.mozilla.org/samples/domref/fullscreen.html" target="_blank">MDN/Fullscreen API/Example</a>,
+                            <a href="http://davidwalsh.name/demo/fullscreen.php" target="_blank">David Walsh/Fullscreen API/Example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/fullscreen/" target="_blank">W3C Fullscreen</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/Using_fullscreen_mode" target="_blank">MDN/Using fullscreen mode</a>, <a href="http://davidwalsh.name/fullscreen" target="_blank">David Walsh/Fullscreen API</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/fullscreen/" target="_blank">W3C Fullscreen</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/Using_fullscreen_mode" target="_blank">MDN/Using fullscreen mode</a>,
+                            <a href="http://davidwalsh.name/fullscreen" target="_blank">David Walsh/Fullscreen API</a>.
                         </p>
                         </small>
-    				</section>
-                </section>
-				<section>
-                    <section>
-					    <h1>HTML</h1>
                     </section>
+                </section>
+
+
+
+<!-- HTML -->
+
+                <section>
+                    <section>
+                        <h1>HTML</h1>
+                    </section>
+
+
+
+<!-- URI shemes для SMS и голосовых вызовов -->
+
                     <section>
                         <h2>URI shemes для SMS и голосовых вызовов</h2>
 <pre><code style='max-height:300px;oveflow:auto;'>&lt;a href="tel:+79022071111"&gt;Test Call&lt;/a&gt;
@@ -412,15 +569,25 @@ document.fullscreenElement
                             <a href="sms:+79022071111, +78005500500">Test SMS to many recipients</a><br />
                             <a href="sms://?body=Test SMS body">Test SMS with body</a><br />
                             <br />
-                            Источники: <a href="http://tools.ietf.org/html/rfc5724#section-2.2" target="_blank">RFC 5724</a>, <a href="http://tools.ietf.org/html/rfc3966#section-8" target="_blank">RFC 3966</a>, <a href="http://davidwalsh.name/phone-link-protocol" target="_blank">David Walsh/tel: sheme</a>, <a href="http://answers.oreilly.com/topic/2166-how-to-send-a-text-message-from-your-mobile-website/;" target="_blank">O`Reilly Answers/sms: sheme</a>, <a href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Articles/sms.html" target="_blank">Apple Developer/sms: scheme</a>, <a href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Articles/PhoneLinks.html" target="_blank">Apple Developer/tel: scheme</a>, <a href="http://www.iana.org/assignments/uri-schemes.html" target="_blank">
-IANA/Permanent URI Schemes</a>.
+                            Источники:
+                            <a href="http://tools.ietf.org/html/rfc5724#section-2.2" target="_blank">RFC 5724</a>,
+                            <a href="http://tools.ietf.org/html/rfc3966#section-8" target="_blank">RFC 3966</a>,
+                            <a href="http://davidwalsh.name/phone-link-protocol" target="_blank">David Walsh/tel: sheme</a>,
+                            <a href="http://answers.oreilly.com/topic/2166-how-to-send-a-text-message-from-your-mobile-website/;" target="_blank">O`Reilly Answers/sms: sheme</a>,
+                            <a href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Articles/sms.html" target="_blank">Apple Developer/sms: scheme</a>,
+                            <a href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Articles/PhoneLinks.html" target="_blank">Apple Developer/tel: scheme</a>,
+                            <a href="http://www.iana.org/assignments/uri-schemes.html" target="_blank">IANA/Permanent URI Schemes</a>.
                         </p>
                         </small>
                     </section>
-				</section>
+                </section>
 
-    			<section>
-    			    <h2>CSS</h2>
+
+
+<!-- CSS -->
+
+                <section>
+                    <h2>CSS</h2>
                     <ul>
                         <li class="fragment">Web Components</li>
                         <li class="fragment">CSS Flexible Box Layout</li>
@@ -428,14 +595,19 @@ IANA/Permanent URI Schemes</a>.
                         <li class="fragment">CSS Viewport units</li>
                         <li class="fragment">CSS calc()</li>
                     </ul>
-				</section>
-    			<section>
-    			    <h1>Итого</h1>
+                </section>
+
+
+
+<!-- Итого -->
+
+                <section>
+                    <h1>Итого</h1>
                     <p style="text-align:left;">
-                        Обобщая развитие веб-стандартов в сфере фронтенд-технологий (css, js, html), можно увидеть общую тенденцию разработок, конечной целью которых является становление веб-интерфейсов как стандарта де-факто в качестве интерфейсов приложений.
+                        Обобщая развитие веб-стандартов в сфере фронтенд-технологий (css, js, html), можно увидеть общую тенденцию разработок, конечной целью которых является становление веб-интерфейсов как стандарта де-факто в качестве интерфейсов приложений. Это подкреплено созданием и развитием <a href="http://www.chromium.org/chromium-os/" terget="_blank">Chrome OS (Chromium OS)</a>, <a href="http://www.mozilla.org/en-US/firefoxos/" terget="_blank">Firefox OS</a>.
                         Уже сейчас можно воспользоваться новыми API при помощи <a href="http://modernizr.com/download/" target="_blank">Modernizr</a>.
                     </p>
-				</section>
+                </section>
 <!--
 				<section id="transitions">
 					<h2>Transition Styles</h2>
@@ -503,6 +675,5 @@ IANA/Permanent URI Schemes</a>.
 			});
 
 		</script>
-
 	</body>
 </html>

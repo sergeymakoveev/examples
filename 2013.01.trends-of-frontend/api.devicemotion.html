@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Examples/Device Motion API</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<script src="//yandex.st/jquery/1.8.3/jquery.min.js"></script>
+<script src="logger.js"></script>
+<link rel="stylesheet" href="//yandex.st/highlightjs/7.3/styles/tomorrow-night-eighties.min.css">
+<script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--
+<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+-->
+</head>
+<body>
+<h1>Device Motion API</h1>
+<!--
+Open <a href="javascript:(function(F,i,r,e,b,u,g,L,I,T,E){if(F.getElementById(b))return;E=F[i+'NS']&&F.documentElement.namespaceURI;E=E?F[i+'NS'](E,'script'):F[i]('script');E[r]('id',b);E[r]('src',I+g+T);E[r](b,u);(F[e]('head')[0]||F[e]('body')[0]).appendChild(E);E=new%20Image;E[r]('src',I+L);})(document,'createElement','setAttribute','getElementsByTagName','FirebugLite','4','firebug-lite.js','releases/lite/latest/skin/xp/sprite.png','https://getfirebug.com/','#startOpened');">console</a>.
+-->
+<pre><code class="javascript">// window.ondevicemotion - событие перемещения устройства
+// ускорение по осям x, y, z соответственно:
+// e.acceleration.x, e.acceleration.y, e.acceleration.z
+// значение угловой скорости вращения по осям z, x, y (в градусах) соответственно:
+// e.rotationRate.alpha, e.rotationRate.beta, e.rotationRate.gamma
+window.addEventListener( "devicemotion",
+                         function(e){ console.dir(e.acceleration);
+                                      console.dir(e.accelerationIncludingGravity);
+                                      console.dir(e.rotationRate); }; );
+</code></pre>
+<style>
+    .bar {
+        display:inline-block;
+        padding:5px 0;
+        text-indent:10px;
+        white-space:nowrap;
+        font-size: 20px;
+        }
+    #ax, #rx {background-color:#f00;}
+    #ay, #ry {background-color:#0f0;}
+    #az, #rz {background-color:#00f;}
+</style>
+acceleration
+<div style="padding:10px;">
+<div id='ax' class='bar'></div><br />
+<div id='ay' class='bar'></div><br />
+<div id='az' class='bar'></div>
+</div>
+rotationRate
+<div style="padding:10px;">
+<div id='rx' class='bar'></div><br />
+<div id='ry' class='bar'></div><br />
+<div id='rz' class='bar'></div>
+</div>
+<input type='button'
+       onclick="window.removeEventListener('devicemotion', ondevicemotion);"
+       value="remove devicemotion event" />
+<input type='button'
+       onclick="window.removeEventListener('devicemotion', ondevicemotion);
+                window.addEventListener('devicemotion', ondevicemotion);"
+       value="add devicemotion event" />
+<script>
+//var logger = new Logger();
+//logger.log(keys(window, /orientation/i).join('<br />'));
+var ax = $('#ax'),
+    ay = $('#ay'),
+    az = $('#az'),
+    rx = $('#rx'),
+    ry = $('#ry'),
+    rz = $('#rz');
+function ondevicemotion(e) {
+    ax.text('X: '+e.acceleration.x)
+       .width(Math.abs(Math.ceil(e.acceleration.x*50)));
+    ay.text('Y: '+e.acceleration.y)
+       .width(Math.abs(Math.ceil(e.acceleration.y*50)));
+    az.text('Z: '+e.acceleration.z)
+       .width(Math.abs(Math.ceil(e.acceleration.z*50)));
+    rx.text('X: '+e.rotationRate.beta)
+      .width(Math.abs(Math.ceil(e.rotationRate.beta)));
+    ry.text('Y: '+e.rotationRate.gamma)
+      .width(Math.abs(Math.ceil(e.rotationRate.gamma)));
+    rz.text('Z: '+e.rotationRate.alpha)
+      .width(Math.abs(Math.ceil(e.rotationRate.alpha)));
+};
+window.addEventListener("devicemotion", ondevicemotion);
+</script>
+
+</body>
+</html>

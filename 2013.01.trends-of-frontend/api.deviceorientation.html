@@ -18,8 +18,8 @@ Open <a href="javascript:(function(F,i,r,e,b,u,g,L,I,T,E){if(F.getElementById(b)
 -->
 <pre><code class="javascript">
 // window.ondeviceorientation - событие смены ориентации устройства
-// e.alpha, e.beta, e.gamma - текущее значение ориентации экрана
-//                            по осям x, y, z соответственно
+// e.alpha, e.beta, e.gamma - текущее значение угла поворота в градусах
+//                            вокруг осей z, x, y соответственно
 window.addEventListener(
     "deviceorientation",
     function(e){
@@ -27,10 +27,22 @@ window.addEventListener(
     }
 );
 </code></pre>
+<style>
+    .bar {
+        display:inline-block;
+        padding:15px 0;
+        text-indent:15px;
+        white-space:nowrap;
+        font-size: 20px;
+        }
+    #da {background-color:#f00;}
+    #db {background-color:#0f0;}
+    #dg {background-color:#00f;}
+</style>
 <div style="padding:50px;">
-    <div id='da' style="display:inline-block;background-color:#f00;height:50px;"></div><br />
-    <div id='db' style="display:inline-block;background-color:#0f0;height:50px;"></div><br />
-    <div id='dg' style="display:inline-block;background-color:#00f;height:50px;"></div><br />
+    <div id='db' class='bar'></div><br />
+    <div id='dg' class='bar'></div><br />
+    <div id='da' class='bar'></div><br />
 </div>
 <input type='button'
        onclick="window.removeEventListener('deviceorientation', ondeviceorientation);"
@@ -46,12 +58,12 @@ var da = $('#da'),
     db = $('#db'),
     dg = $('#dg');
 function ondeviceorientation(e) {
-    da.text(e.alpha)
-      .width(Math.abs(Math.round(e.alpha))*2);
-    db.text(e.beta)
-      .width(Math.abs(Math.round(e.beta))*2);
-    dg.text(e.gamma)
-      .width(Math.abs(Math.round(e.gamma))*2);
+    da.text('Z: '+e.alpha)
+      .width(Math.abs(Math.ceil(e.alpha))*2);
+    db.text('X: '+e.beta)
+      .width(Math.abs(Math.ceil(e.beta))*2);
+    dg.text('Y: '+e.gamma)
+      .width(Math.abs(Math.ceil(e.gamma))*2);
 };
 window.addEventListener("deviceorientation", ondeviceorientation);
 </script>
