@@ -184,7 +184,7 @@
                             Еще в июле 2009 года в рамках World Wide Web Consortium (W3C) была создана <span style="white-space: nowrap;">&laquo;<a href="http://www.w3.org/2009/dap/" target="_blank">Device APIs Working Group (GAP)</a>&raquo;</span>, целью которой является создание client-side API для взаимодействия веб-приложений с сервисами устройств. Некоторые из направлений разработок группы уже реализованы в браузерах.
                         </p>
                         <hr />
-                        <p style="text-align:left"><span style="color:gold">Внимание!</span> Все примеры разработаны для <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta" target="_blank">Firefox Beta для Google Android</a>, частично поддерживаются <a href="http://www.mozilla.org/en-US/firefox/aurora/" target="_blank">Mozilla Firefox Aurora</a>, <a href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/" target="_blank">Firefox Nightly</a>.</p>
+                        <p style="text-align:left"><span style="color:gold">Внимание!</span> Все примеры разработаны для <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta" target="_blank">Firefox mobile beta</a>.</p>
 					</section>
 
 
@@ -195,7 +195,7 @@
 						<h2>Battery Status API</h2>
 						<p style="text-align:left">
                             <em>Служит для отображения информации о состоянии батарей клиентской машины.</em><br />
-                            <small>Реализован в Firefox v16, Firefox Mobile v16, Chrome v20, Chrome for Android v20.</small>
+                            <small>Реализован с браузерным префиксом.</small>
                         </p>
 <pre><code style='max-height:300px;oveflow:auto;'>//объект, содержащий информацию о батареях
 var battery = navigator.battery ||
@@ -207,38 +207,37 @@ var onlevelchange = function(e) {
     console.warn("Battery level change: ", battery.level);
 };
 //levelchange - событие изменения уровня заряда
-battery.addEventListener("levelchange", onlevelchange, false);
-onlevelchange();
+battery.addEventListener("levelchange", onlevelchange);
 
 //battery.charging - статус заряда (true - заряжается, false - не заряжается)
 var onchargingchange = function() {
     console.warn("Battery charge change: ", battery.charging);
 };
 //chargingchange - событие изменения статуса заряда
-battery.addEventListener("chargingchange", onchargingchange, false);
-onchargingchange();
+battery.addEventListener("chargingchange", onchargingchange);
 
 //battery.chargingTime - оставшееся время до полного заряда
 var onchargingtimechange = function() {
     console.warn("Battery charge time change: ", battery.chargingTime);
 };
 //chargingchange - событие изменения времени до полного заряда
-battery.addEventListener("chargingtimechange", onchargingtimechange, false);
-onchargingtimechange();
+battery.addEventListener("chargingtimechange", onchargingtimechange);
 
 //battery.dischargingTime - оставшееся время до полного разряда
 var ondischargingtimechange = function() {
     console.warn("Battery discharging time change: ", battery.dischargingTime);
 };
 //dischargingtimechange - событие изменения времени до полного разряда
-battery.addEventListener("dischargingtimechange", ondischargingtimechange, false);
-ondischargingtimechange();
+battery.addEventListener("dischargingtimechange", ondischargingtimechange);
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
                             Пример: <a href="http://davidwalsh.name/demo/battery-api.php" target="_blank">David Walsh/Battery Status API/Example</a>.
                             <br />
-                            Источники: <a href="http://www.w3.org/TR/battery-status/" target="_blank">W3C Battery Status API</a>, <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.battery" target="_blank">MDN/window.navigator.battery</a>, <a href="http://davidwalsh.name/battery-api" target="_blank">David Walsh/Battery Status API</a>.
+                            Источники:
+                            <a href="http://www.w3.org/TR/battery-status/" target="_blank">W3C Battery Status API</a>,
+                            <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.battery" target="_blank">MDN/window.navigator.battery</a>,
+                            <a href="http://davidwalsh.name/battery-api" target="_blank">David Walsh/Battery Status API</a>.
                         </p>
                         </small>
                     </section>
@@ -250,8 +249,7 @@ ondischargingtimechange();
                     <section>
                         <h2>Vibration API</h2>
                         <p style="text-align:left">
-                            <em>Предназначен для управления вибросигналом устройства.</em><br />
-                            <small>Реализован в Chrome, Firefox v11, Chrome Android, Firefox Mobile v11.</small>
+                            <em>Предназначен для управления вибросигналом устройства.</em>
                         </p>
 <pre><code style='max-height:300px;oveflow:auto;'><input type="button" value="vibrate 1 sec"
        onclick="
@@ -326,15 +324,15 @@ navigator.vibrate([]);
                     <section>
                         <h2>Screen Orientation API</h2>
                         <p style="text-align:left">
-                            <em>Предназначен для получения событий при смене ориентации экрана устройства и информации о текущем состоянии ориентации экрана.</em><br />
-                            <small>Реализован в Firefox Mobile с браузерным префиксом.</small>
+                            <em>Предназначен для получения событий изменения ориентации экрана устройства и информации о текущем состоянии ориентации экрана.</em><br />
+                            <small>Реализован с браузерным префиксом.</small>
                         </p>
-<pre><code style='max-height:300px;oveflow:auto;'>// screen.onmozorientationchange - событие смены ориентации экрана
-// screen.mozOrientation - текущее значение ориентации экрана
+<pre><code style='max-height:300px;oveflow:auto;'>// screen.onorientationchange - событие изменения ориентации экрана
+// screen.o rientation - текущее значение ориентации экрана
 screen.addEventListener(
     "mozorientationchange",
     function() {
-        logger.log( "the orientation of the device is now "+
+        console.log( "the orientation of the device is now "+
                      screen.mozOrientation );
     }
 );
@@ -358,10 +356,9 @@ screen.addEventListener(
                     <section>
                         <h2>Device Orientation API</h2>
                         <p style="text-align:left">
-                            <em>Предназначен для получения событий при смене ориентации устройства и информации о текущем состоянии ориентации.</em><br />
-                            <small>Реализован в Chrome 7, Firefox 3.6, Android 3, Firefox Mobile 3.6, Opera Mobile 12, Safari Mobile 4.2.</small>
+                            <em>Предназначен для получения событий изменения ориентации устройства и информации о текущем состоянии ориентации.</em>
                         </p>
-<pre><code style='max-height:300px;oveflow:auto;'>// window.ondeviceorientation - событие смены ориентации устройства
+<pre><code style='max-height:300px;oveflow:auto;'>// window.ondeviceorientation - событие изменения ориентации устройства
 // e.alpha, e.beta, e.gamma - текущее значение ориентации экрана
 //                            по осям x, y, z соответственно
 window.addEventListener(
@@ -394,8 +391,7 @@ window.addEventListener(
                     <section>
                         <h2>Device Motion API</h2>
                         <p style="text-align:left">
-                            <em>Предназначен для получения событий и информации от датчика-акселерометра о перемещении устройства.</em><br />
-                            <small>Реализован в Chrome 7, Firefox 3.6, Android 3, Firefox Mobile 3.6, Opera Mobile 12, Safari Mobile 4.2.</small>
+                            <em>Предназначен для получения событий датчика-акселерометра о перемещении устройства.</em>
                         </p>
 <pre><code style='max-height:300px;oveflow:auto;'>// window.ondevicemotion - событие перемещения устройства
 // ускорение по осям x, y, z соответственно:
@@ -430,20 +426,17 @@ window.addEventListener( "devicemotion",
                     <section>
                         <h2>Ambient Light Events</h2>
                         <p style="text-align:left">
-                            <em>Предназначены для получения событий от датчика освещенности устройства.</em><br />
-                            <small>Реализованы в Firefox Mobile.</small>
+                            <em>Предназначены для получения событий датчика освещенности устройства.</em>
                         </p>
 <pre><code style='max-height:300px;oveflow:auto;'>window.addEventListener(
     "devicelight",
     //e.value - значение освещенности в люксах
-    function(e){console.log(e.value)},
-    true
+    function(e){ console.log(e.value); }
 );
 window.addEventListener(
     'lightlevel',
     // e.value = ("normal"|"dim"|"bright")
-    function(e) { logger.log('lightlevel: ' + e.value); },
-    false
+    function(e) { console.log('lightlevel: ' + e.value); }
 );
 </code></pre>
                         <small>
@@ -467,8 +460,7 @@ window.addEventListener(
                     <section>
                         <h2>Proximity Events</h2>
                         <p style="text-align:left">
-                            <em>События от датчика приближения устройства.</em><br />
-                            <small>Реализованы в Firefox Mobile v15.</small>
+                            <em>События датчика приближения устройства.</em>
                         </p>
 <pre><code style='max-height:300px;oveflow:auto;'>window.addEventListener(
     "deviceproximity",
@@ -476,15 +468,13 @@ window.addEventListener(
         e.value, // текущая дистанция до датчика в сантиметрах (!)
         e.min,   // минимальное значение, определяемое датчиком
         e.max    // максимальное значение, определяемое датчиком
-    )},
-    true
+    )}
 );
 window.addEventListener(
     "userproximity",
     function(e){console.log(
         e.near //true - близко, false - далеко
-    )},
-    true
+    )}
 );
 </code></pre>
                         <small>
@@ -511,19 +501,21 @@ window.addEventListener(
                         <h2>Page Visibility API</h2>
     					<p style="text-align:left">
                             <em>Позволяет определить отображается ли страница на экране устройства.</em><br />
-                            <small>Реализован с браузерными префиксами в Chrome v13, Firefox v10, Internet Explorer v.10, Opera v12.10.</small>
+                            <small>Реализован с браузерным префиксом.</small>
                         </p>
-<pre><code style='max-height:300px;oveflow:auto;'>
-// Поля, содержащие состояние отображаемости страницы
-document.hidden = (true|false)
-document.visibilityState = ("hidden"|"visible"|"prerender"|"unloaded")
+<pre><code style='max-height:300px;oveflow:auto;'>// Поля, содержащие состояние отображаемости страницы:
+// document.hidden = (true|false)
+// document.visibilityState = ("hidden"|"visible"|"prerender"|"unloaded")
 
-// 'visibilitychange' - событие смены состояния отображаемости страницы
+console.log( document.mozHidden, document.mozVisibilityState );
+
+// Событие смены состояния отображаемости страницы:
+// document.onvisibilitychange = function(e){ ... }
+
 document.addEventListener(
-    'visibilitychange',
-    function(){console.log( document.hidden,
-                            document.visibilityState );},
-    false
+    'mozvisibilitychange',
+    function(){console.log( document.mozHidden,
+                            document.mozVisibilityState );}
 );
 </code></pre>
                         <small>
@@ -550,20 +542,27 @@ document.addEventListener(
                         <h2>Fullscreen API</h2>
                         <p style="text-align:left">
                             <em>Предоставляет возможности работы с полноэкранным режимом.</em><br />
-                            <small>Реализован с браузерными префиксами в Chrome v23, Firefox v16, Safari v5.1, Opera v12.10.</small>
+                            <small>Реализован с браузерным префиксом.</small>
                         </p>
-<pre><code style='max-height:300px;oveflow:auto;'>
-// доступность полноэкранного режима
-document.fullscreenEnabled = (true|false)
+<pre><code style='max-height:300px;oveflow:auto;'>// доступность полноэкранного режима:
+// document.fullScreenEnabled = (true|false)
 
-// вывод DOM-ноды в полноэкранном режиме
-el.requestFullScreen();
+console.log('fullScreenEnabled :', document.mozFullScreenEnabled );
 
-// выход из полноэкранного режима:
-document.requestFullScreen();
+// вывод DOM-ноды в полноэкранном режиме:
+// el.requestFullScreen();
+
+document.mozRequestFullScreen();
 
 // элемент, выведенный в полноэкранном режиме:
-document.fullscreenElement
+// document.fullscreenElement
+
+console.log('fullscreenElement:', document.mozFullscreenElement);
+
+// выход из полноэкранного режима:
+// document.cancelFullScreen();
+
+document.mozCancelFullScreen();
 </code></pre>
                         <small>
                         <p style="text-align:left;margin-top:10px;">
