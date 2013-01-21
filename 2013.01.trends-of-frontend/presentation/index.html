@@ -33,15 +33,35 @@
                 top: 0;
                 right: 0;
                 }
-            body > .qr-code-link {
+            body > .menu {
                 position: absolute;
-                bottom: 0;
-                left: 0;
                 color: #71E9F4;
                 font-size: 30px;
-                text-decoration: none;
                 padding: 20px;
+                z-index:1;
                 }
+            body > .menu > .item {
+                color: #71E9F4;
+                text-decoration: none;
+                display: inline-block;
+                cursor: pointer;
+                }
+            body > .menu > .item:hover {
+                text-decoration: underline;
+                }
+            body > .menu.top {
+                top: 0;
+                left: 0;
+                opacity: 0;
+                }
+            body > .menu.top:hover {
+                opacity: 1;
+                }
+            body > .menu.bottom {
+                bottom: 0;
+                left: 0;
+                }
+
             .reveal pre {
                 width:100%!important;
                 margin:0!important;
@@ -67,11 +87,33 @@
 	</head>
 
 	<body>
-        <input type='button' value='F' onclick="fullscreen(document.body)" /><input type='button' value='W' onclick="fullscreencancel()" />
         <a class="qr-code" href='http://goo.gl/2CkWb'>
             <img alt="QR code" src="http://goo.gl/2CkWb.qr" />
         </a>
-        <a class='qr-code-link' href='http://goo.gl/2CkWb'>http://goo.gl/2CkWb</a>
+        <div class='menu top'>
+            <div class='item'
+                 title='Show in fullscreen'
+                 onclick="fullscreen(document.body)">
+                Fullscreen
+            </div>
+            |
+            <div class='item'
+                 title='Show in window'
+                 onclick="fullscreencancel()">
+                Window
+            </div>
+        </div>
+        <div class='menu bottom'>
+            <a class='item' target='_blank' href='http://goo.gl/2CkWb'>http://goo.gl/2CkWb</a>
+            |
+            <a class='item' target='_blank' href='http://goo.gl/YYj0R'>
+                Sources
+            </a>
+            |
+            <a class='item' target='_blank' href='http://goo.gl/5jv4i'>
+                Examples
+            </a>
+        </div>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -80,7 +122,6 @@
 				<section>
 					<h1>Тренды<br />фронтэнда</h1>
 					<h3>Новые возможности браузеров</h3>
-                    <a href='http://goo.gl/2CkWb'>http://goo.gl/2CkWb</a>
 					<p>
 						<small><a href="http://sergey.makoveev.info">Sergey Makoveev</a> / <a href="http://twitter.com/sergeymakoveev">@sergeymakoveev</a></small>
 					</p>
