@@ -39,10 +39,13 @@ traits:
   - limitable: !include traits/limitable.raml
   - limitableByTime: !include traits/limitableByTime.raml
   - limitableById: !include traits/limitableById.raml
-#securedBy: [ oauth_2_0 , clientId ]
+# securedBy: [ oauth_2_0 , clientId ]
 /media:
   /{mediaId}:
     type: base
+    uriParameters:
+      mediaId:
+        example: '1227486562588759285_847647756'
     get:
       is: [ accessByToken ]
       description: |
@@ -58,8 +61,9 @@ traits:
               schema: media
               example: !include examples/media-example.json
     /comments:
-      type: { secured: { scope: comments } }
+      # type: { secured: { scope: comments } }
       get:
+        is: [ accessByToken ]
         description: Get a full list of comments on a media.
         responses:
           200:
@@ -88,7 +92,7 @@ traits:
             200:
               description: Comment removed.
     /likes:
-      type: { secured: { scope: likes } }
+      # type: { secured: { scope: likes } }
       get:
         description: |
           Get a list of users who have liked this media.
@@ -131,6 +135,7 @@ traits:
       tagName:
         description: Name of tag.
     get:
+      is: [ accessByToken ]
       description: Get information about a tag object.
       responses:
         200:
@@ -155,6 +160,7 @@ traits:
   /search:
     type: base
     get:
+      is: [ accessByToken ]
       description: |
         Search for tags by name. Results are ordered first as an exact match, then by popularity.
         Short tags will be treated as exact matches.
@@ -174,6 +180,7 @@ traits:
   /{userId}:
     type: base
     get:
+      is: [ accessByToken ]
       description: Get basic information about a user.
       responses:
         200:
