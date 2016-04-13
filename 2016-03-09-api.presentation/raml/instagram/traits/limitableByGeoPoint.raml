@@ -1,11 +1,13 @@
-queryParameters: 
-  lat: 
+queryParameters:
+  lat:
     description: Latitude of the center search coordinate. If used, lng is required.
     type: number
-  lng: 
+    default: 48.858844
+  lng:
     description: Longitude of the center search coordinate. If used, lat is required.
     type: number
-  distance: 
+    default: 2.294351
+  distance:
     description: Default is 1000m (distance=1000), max distance is 5000.
     type: integer
     maximum: 5000

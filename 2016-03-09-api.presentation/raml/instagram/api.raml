@@ -33,6 +33,7 @@ resourceTypes:
   - base: !include resourceTypes/base.raml
   - feedsListing: !include resourceTypes/feedsListing.raml
 traits:
+  - accessByToken: !include traits/accessByToken.raml
   - acceptCallback: !include traits/acceptCallback.raml
   - limitableByGeoPoint: !include traits/limitableByGeoPoint.raml
   - limitable: !include traits/limitable.raml
@@ -43,6 +44,7 @@ traits:
   /{mediaId}:
     type: base
     get:
+      is: [ accessByToken ]
       description: |
         Get information about a media object. The returned type key will allow you
         to differentiate between image and video media.
@@ -112,7 +114,7 @@ traits:
   /search:
     type: mediaSearch
     get:
-      is: [ limitableByTime , limitableByGeoPoint ]
+      is: [ accessByToken, limitableByTime , limitableByGeoPoint ]
       description: |
         Search for media in a given area. The default time span is set to 5 days.
         The time span must not exceed 7 days. Defaults time stamps cover the
@@ -139,7 +141,7 @@ traits:
     /media/recent:
       type: base
       get:
-        is: [ limitableById ]
+        is: [ accessByToken, limitableById ]
         description: |
           Get a list of recently tagged media. Note that this media is ordered by when the media was tagged
           with this tag, rather than the order it was posted. Use the max_tag_id and min_tag_id parameters
@@ -190,7 +192,7 @@ traits:
     /media/recent:
       type: feedsListing
       get:
-        is: [ limitableById , limitableByTime , limitable ]
+        is: [ accessByToken, limitableById , limitableByTime , limitable ]
         description: |
           See the authenticated user's feed. May return a mix of both image and
           video types.
@@ -250,7 +252,7 @@ traits:
     /feed:
       type: feedsListing
       get:
-        is: [ limitableById , limitable ]
+        is: [ accessByToken, limitableById , limitable ]
         description: |
           See the authenticated user's feed. May return a mix of both image and
           video types.
@@ -264,7 +266,7 @@ traits:
     /media/liked:
       type: feedsListing
       get:
-        is: [ limitable ]
+        is: [ accessByToken, limitable ]
         description: |
           See the authenticated user's list of media they've liked. May return a mix
           of both image and video types.
@@ -294,14 +296,14 @@ traits:
     /media/recent:
       type: feedsListing
       get:
-        is: [ limitableById , limitableByTime ]
+        is: [ accessByToken, limitableById , limitableByTime ]
         description: |
           Get a list of recent media objects from a given location. May return a
           mix of both image and video types.
   /search:
     type: base
     get:
-      is: [ limitableByGeoPoint ]
+      is: [ accessByToken, limitableByGeoPoint ]
       description: Search for a location by geographic coordinate.
       queryParameters:
         foursquare_v2_id:
@@ -322,7 +324,7 @@ traits:
 /geographies/{geoId}/media/recent:
   type: base
   get:
-    is: [ limitable ]
+    is: [ accessByToken, limitable ]
     description: |
       Get recent media from a geography subscription that you created.
       Note: You can only access Geographies that were explicitly created by your
