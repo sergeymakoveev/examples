@@ -396,7 +396,7 @@ paths:
         Search for media in a given area. The default time span is set to 5
         days. The time span must not exceed 7 days. Defaults time stamps cover
         the last 5 days. Can return mix of image and video types.
-        <https://www.instagram.com/developer/endpoints/media/#get_media_search>
+        [Media Endpoints /media/search description](https://www.instagram.com/developer/endpoints/media/#get_media_search).
 
       parameters:
         - name: access_token
