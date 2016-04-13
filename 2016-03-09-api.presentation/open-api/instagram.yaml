@@ -20,8 +20,8 @@ info:
 ################################################################################
 #                  Host, Base Path, Schemes and Content Types                  #
 ################################################################################
-host: cors.home
-basePath: /https://api.instagram.com/v1
+host: api.instagram.com
+basePath: /v1
 schemes:
   - https
 produces:
